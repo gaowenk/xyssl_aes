@@ -24,7 +24,7 @@ aes/aescrypt2: aes/aescrypt2.c ../library/libxyssl.a
 	echo   "  CC    aes/aescrypt2.c"
 	$(CC) $(CFLAGS) $(OFLAGS) aes/aescrypt2.c    $(LDFLAGS) -o $@
 
-aes/aescrypt2str: aes/aescrypt2str.c ../library/libxyssl.a
+aes/aescrypt2str: aes/aescrypt2str.c ../library/libxyssl.so
 	echo   "  CC    aes/aescrypt2str.c"
 	$(CC) $(CFLAGS) $(OFLAGS) aes/aescrypt2str.c    $(LDFLAGS) -o $@
 

@@ -1,7 +1,7 @@
 
 # Also see "include/xyssl/config.h"
 
-CFLAGS	= -I../include -D_FILE_OFFSET_BITS=64
+CFLAGS	= -I../include -D_FILE_OFFSET_BITS=64 -fPIC
 OFLAGS	= -O
 
 # MicroBlaze specific options:
@@ -28,7 +28,7 @@ OBJS=	aes.o		arc4.o		base64.o	\
 
 .SILENT:
 
-all: static
+all: static shared
 
 static: libxyssl.a
 
