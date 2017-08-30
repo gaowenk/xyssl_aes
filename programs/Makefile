@@ -2,11 +2,11 @@
 # To compile on SunOS: add "-lsocket -lnsl" to LDFLAGS
 # To compile on MinGW: add "-lws2_32" to LDFLAGS
 
-CFLAGS	= -I../include -D_FILE_OFFSET_BITS=64
+CFLAGS	= -I../include -D_FILE_OFFSET_BITS=64 -g
 OFLAGS	= -O
 LDFLAGS	= -L../library -lxyssl
 
-APPS =	aes/aescrypt2		hash/hello		\
+APPS =	aes/aescrypt2	aes/aescrypt2str	hash/hello		\
 	hash/md5sum		hash/sha1sum		\
 	hash/sha2sum		pkey/dh_client		\
 	pkey/dh_genprime	pkey/dh_server		\
@@ -23,6 +23,10 @@ all: $(APPS)
 aes/aescrypt2: aes/aescrypt2.c ../library/libxyssl.a
 	echo   "  CC    aes/aescrypt2.c"
 	$(CC) $(CFLAGS) $(OFLAGS) aes/aescrypt2.c    $(LDFLAGS) -o $@
+
+aes/aescrypt2str: aes/aescrypt2str.c ../library/libxyssl.a
+	echo   "  CC    aes/aescrypt2str.c"
+	$(CC) $(CFLAGS) $(OFLAGS) aes/aescrypt2str.c    $(LDFLAGS) -o $@
 
 hash/hello: hash/hello.c ../library/libxyssl.a
 	echo   "  CC    hash/hello.c"
